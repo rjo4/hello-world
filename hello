@@ -1,7 +1,54 @@
-// Your First Program
+package hello;
 
-class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!"); 
-    }
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import java.awt.BorderLayout;
+import java.awt.Font;
+
+public class hello {
+
+	private JFrame frame;
+	private JTextField txtHello;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					hello window = new hello();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public hello() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		txtHello = new JTextField();
+		txtHello.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtHello.setText("Hello");
+		frame.getContentPane().add(txtHello, BorderLayout.CENTER);
+		txtHello.setColumns(10);
+	}
+
 }
+
